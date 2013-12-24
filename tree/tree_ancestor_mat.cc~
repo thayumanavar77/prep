@@ -1,0 +1,55 @@
+#include <iostream>
+#include <queue>
+#include <algorithm>	
+
+using namespace std;
+	
+struct TreeNode
+{
+  int data;
+  TreeNode* left;
+  TreeNode* right;
+  
+  TreeNode(int d) : data(d), left(NULL),
+		    right(NULL)
+  {
+  }
+};
+struct NodeLevel
+{
+  int d;
+  int num_ancestor;
+  bool operator< (const NodeLevel& rhs)
+  {
+    return 
+  }
+};
+
+void
+constructTreeFromAncesotrMatrix(int *ancmat, int len)
+{
+  Queue<TreeNode*> q;
+  TreeNode* tmpNode;
+  
+
+  for (int i= 0; i < n; i++)
+    for (int j= 0; j< n; j++)
+  
+  TreeNode* rootNode= new TreeNode(rootIdx);
+  q.push(rootNode);
+
+  while(!q.empty())
+  {
+    tmpNode= q.front();
+    q.pop();
+    find_child(ancmat,len,rootNode->data);
+    rootNode
+    
+  }
+}
+int
+main()
+{
+
+  return 0;
+}

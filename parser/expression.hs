@@ -23,11 +23,10 @@ interp expr = case expr of
 expr = term `chainr1` eoper   
 term = factor `chainr1` toper
 factor = vnum <|> uplus <|> uminus <|> parens
---uplus :: Parser (Expr->Expr)
+
 uplus = parseOp "+" >> factor >>= (\f -> return (Uplus f))
 uminus = parseOp "-" >> factor >>= (\f -> return (Uminus f))
 parens = parseOp "(" >> expr >>= (\e -> parseOp ")" >> return e)
---uplus = parseOp "+" >> factor >>=(\f->return Uplus f) -- <|> (parseOp "-" >> factor >>=\f->Uminus f) 
 
 eoper = (parseOp "+" >> return Add) <|> (parseOp "-" >> return Minus) 
 toper :: Parser (Expr -> Expr -> Expr)
@@ -47,4 +46,3 @@ main = do
           _ -> Val 0
   putStrLn $ show y
   putStrLn $ show $ interp $ y
- 
